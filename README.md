@@ -1,6 +1,6 @@
 # avidity-test
 
-An app to test Marvel API.
+~~An app to test Marvel API.~~
 
 > ## The Comics test
 > 
@@ -17,6 +17,45 @@ An app to test Marvel API.
 > Your solution should highlight your Python programming abilities.
 >
 > You should supply instructions on how to install and run your project.
+
+## About this project
+
+The Marvel API it was broke, then I made the test using another public API. In the randomUser API, we have no apikey for authentication,  but the project isnt change a lot if it will be necessary, it will be just another parameter.
+
+This is what I used to solve this test:
+
+* Python-Flask in the backend;
+* Python requests for http requests in flask
+* To obtain the data RandomUser API https://randomuser.me/
+* To *builtify* the page, I used Bulmacss framework https://bulma.io/
+
+The project follows this structure:
+
+```
+.
+├── app
+│   ├── __init__.py
+│   ├── static
+│   │   ├── css
+│   │   │   ├── bulma.min.css
+│   │   │   └── style.css
+│   │   └── js
+│   │       └── main.js
+│   ├── templates
+│   │   └── index.html
+│   └── user.py
+├── LICENSE
+├── README.md
+└── requirements.txt
+
+5 directories, 9 files
+```
+
+This project use a factory pattern for flask apps.
+
+In the main.js file we have some javascript to make a counter and reload the page after timeout occurs.
+
+In the style.css just a little bit of css for render the data text correctly.
 
 ## How to install it...
 

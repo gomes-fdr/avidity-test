@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/bulma.min.css') }}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/style.css') }}" />
+    <script src="{{ url_for('static', filename='lib/jquery.min.js') }}"></script>
+    <title>Avidity - Random User API Test</title>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Random API Test
+        </h1>
+        <h2 class="subtitle">
+          This is a simple test that pull a couple os Users from it API
+        </h2>
+        <p>*This page will refresh in <span id="counter"></span></p>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">The Randon Users [{{n_user}} users] </h1>
+      <h2 class="subtitle">
+          This data came from RandomUser API, the number of User will random between 3 to 12.
+          ( Why? Because I want to ;op )
+      </h2>
+      {% for user in data.results %}
+        <article class="media">
+          <figure class="media-left">
+            <p class="image is-128x128">
+              <img src="{{ user.picture.medium }}">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content dados_capitalizados">
+              <p> <strong>first name:</strong> {{user.name.first}}</p>
+              <p> <strong>last Name:</strong> {{user.name.last}}</p>
+              <p> <strong>address:</strong> {{user.location.street}}</p>
+              <p> <strong>city:</strong> {{user.location.city}}</p>
+              <p> <strong>state:</strong> {{user.location.state}}</p>
+              <p class="dados_normais"> <strong>email:</strong> {{user.email}}</p>
+            </div>
+          </div>
+        </article>
+    {% endfor %}
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>RandomUser API Test</strong> by <a href="https://github.com/gomes-fdr">Fabiano Gomes</a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. 
+      </p>
+    </div>
+  </footer>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

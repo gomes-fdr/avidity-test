@@ -1,0 +1,6 @@
+.dados_capitalizados {
+    text-transform: capitalize;
+}
+.dados_normais {
+    text-transform: none;
+}
