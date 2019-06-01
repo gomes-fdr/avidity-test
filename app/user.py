@@ -1,3 +1,4 @@
+import os
 import requests
 import json
 from flask import Blueprint
@@ -11,7 +12,7 @@ def get_param_from_url(url, param_name):
 @bp_user.route('/')
 @bp_user.route('/<page>')
 def index(page=1):
-    api_token = 'd8a4b668b66a5c34e25f7ecadf46063eb7721dff'
+    api_token = os.environ['TOKEN_API']
     api_uri = 'https://api.github.com'
     repo_url = api_uri + '/repos/turicas/brasil.io'
     commits_url = api_uri + '/repos/turicas/brasil.io/commits' + '?page={}'.format(page)

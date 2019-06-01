@@ -59,7 +59,8 @@ Step one, install from requirements file
 
  Step two, export flask vars
  ```
- export FLASK_APP=app 
+ export FLASK_APP=app
+ export TOKEN_API="d8a4b668b66a5c34e25f7ecadf46063eb7721dff"
  ```
 
  Step three, run the app
