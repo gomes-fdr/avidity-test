@@ -1,26 +1,21 @@
 # avidity-test
 
-~~An app to test Marvel API.~~
-
-> ## The Comics test
+> Your task is to generate an HTML page that lists commits and shows some information from a public repository from Github.
 > 
-> Your task is to generate an HTML page that lists the characters from a Marvel-story.
+> Using the Github API (https://developer.github.com/v3/), choose a public repository, perhaps from  you favorite library and generate an HTML page with the following information:
+> - Repository's full name ({owner}/{repo} e.g. avidity/some-repo) and description
+> - List of recent commits including author's name and email as well as commit SHA, date and message
 > 
-> Using the Marvel API [http://developer.marvel.com/docs], pick a random > story featuring your favorite character (perhaps The Hulk?). Generate an HTML > page with the following characteristics:
 > 
-> * The story's description
-> * A list of names and pictures of the characters that features in the > story
-> * The Marvel attribution text
+> Requests to the API must use authentication (even though for public repositories it's not required by Github).
 > 
-> We are not too fuzzy about the layout or design of the generated HTML > page, but the HTML itself should be well-formatted.
->
-> Your solution should highlight your Python programming abilities.
->
+> We are not too fuzzy about the layout or design of the generated HTML page, but the HTML itself  should be well-formatted.
+> 
+> Your solution should highlight your programming abilities.
+> 
 > You should supply instructions on how to install and run your project.
 
 ## About this project
-
-The Marvel API it was broke, then I made the test using another public API. In the randomUser API, we have no apikey for authentication,  but the project isnt change a lot if it will be necessary, it will be just another parameter.
 
 This is what I used to solve this test:
 
@@ -53,9 +48,7 @@ The project follows this structure:
 
 This project use a factory pattern for flask apps.
 
-In the main.js file we have some javascript to make a counter and reload the page after timeout occurs.
-
-In the style.css just a little bit of css for render the data text correctly.
+It use a flask blueprints to isolate your routes.
 
 ## How to install it...
 

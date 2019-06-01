@@ -6,54 +6,60 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/bulma.min.css') }}" />
     <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/style.css') }}" />
-    <title>Avidity - Random User API Test</title>
+    <script src="{{ url_for('static', filename='lib/jquery.min.js') }}"></script>
+    <title>Avidity - Github API Test</title>
 </head>
 <body>
   <section class="hero">
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
-          Random API Test
+          <a href="{{ url_for('user.index') }}">{{repo.name}}</a>
         </h1>
         <h2 class="subtitle">
-            This is a simple test that get a couple of Users from  RandomUser API.
+            {{repo.description}}
         </h2>
-        <p>*This page will refresh in <span id="counter"></span></p>
+        <p>Clone url: {{repo.clone_url}}</p>
       </div>
     </div>
   </section>
   <section class="section">
     <div class="container">
-      <h1 class="title">The Randon Users [{{n_user}} users] </h1>
+      <h1 class="title">List of commits </h1>
       <h2 class="subtitle">
-          This data came from RandomUser API, the number of User will random between 3 to 12.
-          ( Why? Because I want to ;op )
+          This a list of commits.
       </h2>
-      {% for user in data.results %}
+
+      {% for page in range(2, pages) %}
+        <a href="{{ url_for('user.index', page=page) }}" >page# {{page}}</a>|
+      {% endfor %}
+
+      <hr>
+
+      {% for commit in commits %}
         <article class="media">
-          <figure class="media-left">
-            <p class="image is-128x128">
-              <img src="{{ user.picture.medium }}">
-            </p>
-          </figure>
-          <div class="media-content">
-            <div class="content dados_capitalizados">
-              <p> <strong>first name:</strong> {{user.name.first}}</p>
-              <p> <strong>last Name:</strong> {{user.name.last}}</p>
-              <p> <strong>address:</strong> {{user.location.street}}</p>
-              <p> <strong>city:</strong> {{user.location.city}}</p>
-              <p> <strong>state:</strong> {{user.location.state}}</p>
-              <p class="dados_normais"> <strong>email:</strong> {{user.email}}</p>
+            <figure class="media-left">
+              <p class="image is-128x128">
+                <img src="{{ commit.author.avatar_url }}">
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="content dados_capitalizados">
+                  <p> <strong>author:</strong> {{ commit.commit.author.name }}</p>
+                  <p> <strong>email:</strong> <span class="dados_normais">{{ commit.commit.author.email }}</span></p>
+                  <p> <strong>sha:</strong> <span class="dados_normais"></span>{{ commit.commit.tree.sha }}</span></p>
+                  <p> <strong>date:</strong> {{commit.commit.author.date}}</p>
+                  <p> <strong>message:</strong> {{commit.commit.message}}</p>
+              </div>
             </div>
-          </div>
         </article>
-    {% endfor %}
+      {% endfor %}
     </div>
   </section>
   <footer class="footer">
     <div class="content has-text-centered">
       <p>
-        <strong>RandomUser API Test</strong> by <a href="https://github.com/gomes-fdr">Fabiano Gomes</a>. The source code is licensed
+        <strong>Github API Test</strong> by <a href="https://github.com/gomes-fdr">Fabiano Gomes</a>. The source code is licensed
         <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. 
       </p>
     </div>
