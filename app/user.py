@@ -11,7 +11,7 @@ def get_param_from_url(url, param_name):
 @bp_user.route('/')
 @bp_user.route('/<page>')
 def index(page=1):
-    api_token = 'd8a4b668b66a5c34e25f7ecadf46063eb7721dff' # This token is automaticly revoke when I commit it.
+    api_token = 'd8a4b668b66a5c34e25f7ecadf46063eb7721dff'
     api_uri = 'https://api.github.com'
     repo_url = api_uri + '/repos/turicas/brasil.io'
     commits_url = api_uri + '/repos/turicas/brasil.io/commits' + '?page={}'.format(page)
