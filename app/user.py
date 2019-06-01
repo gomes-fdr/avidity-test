@@ -35,8 +35,6 @@ def index(page=1):
     else:
         pages=1
 
-    print(page)
-    print(commits_url)
     commits = json.loads(response.text)
 
     return render_template('index.html', repo=repo, commits=commits, pages=pages)
