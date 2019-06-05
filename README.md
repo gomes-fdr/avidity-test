@@ -21,7 +21,6 @@ This is what I used to solve this test:
 
 * Python-Flask in the backend;
 * Python requests for http requests in flask
-* ~~To obtain the data RandomUser API https://randomuser.me/~~
 * To *builtify* the page, I used Bulmacss framework https://bulma.io/
 
 The project follows this structure:
